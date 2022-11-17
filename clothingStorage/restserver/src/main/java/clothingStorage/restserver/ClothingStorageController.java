@@ -42,9 +42,20 @@ public class ClothingStorageController {
      */
     @GetMapping(path = "/names")
     public List<String> getNames() {
-        List<String> names = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<String> names2 = new ArrayList<>();
+
         for (Clothing clothing : getStorage().getAllClothes().keySet()) {
-            names.add(clothing.getName());
+            if (names.isEmpty()) {
+                names.add(clothing.getName());
+                names2.add(clothing.getType() + "; " + clothing.getBrand());
+                continue;
+            } else if (names2.contains(clothing.getType() + "; " + clothing.getBrand())) {
+                continue;
+            } else {
+                names.add(clothing.getName());
+                names2.add(clothing.getType() + "; " + clothing.getBrand());
+            }
         }
         return names;
     }
