@@ -149,7 +149,8 @@ class DirectAccess
     +boolean updateDiscount(Clothing, double)
     +boolean removeDiscount(Clothing)
     +List<Integer> getQuantitiesForTypeAndSizes(String)
-    +List<String> getNames()
+    +List<String> getPricePageNames()
+    +List<String> getStoragePageNames()
     +double getTotalValue()
     +int getTotalQuantity()
     -void fireAutoSaveStorage()
@@ -177,7 +178,8 @@ class RemoteAccess
     +boolean updateDiscount(Clothing, double)
     +boolean removeDiscount(Clothing)
     +List<Integer> getQuantitiesForTypeAndSizes(String)
-    +List<String> getNames()
+    +List<String> getPricePageNames()
+    +List<String> getStoragePageNames()
     +int getQuantity(String)
     +double getTotalValue()
     +int getTotalQuantity()
@@ -200,7 +202,8 @@ interface Access
     +List<String> getSortedTypePriceDisplay(String);
     +List<String> getSortedBrandPriceDisplay(String);
     +List<String> getSortedNames();
-    +List<String> getNames();
+    +List<String> getPricePageNames();
+    +List<String> getStoragePageNames();
     +boolean updatePrice(Clothing, double);
     +boolean updateDiscount(Clothing, double);
     +boolean removeDiscount(Clothing);

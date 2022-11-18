@@ -123,8 +123,17 @@ public class StorageIntegrationTest {
     }
 
     @Test
-    public void testGetNames() {
-        List<String> names = storageClient.getNames();
+    public void testGetStoragePageNames() {
+        List<String> names = storageClient.getStoragePageNames();
+        assertEquals(3, names.size());
+        assertEquals("PantsNikeM", names.get(0));
+        assertEquals("PantsAdidasS", names.get(1));
+        assertEquals("JacketLacosteL", names.get(2));
+    }
+
+    @Test
+    public void testGetPricePageNames() {
+        List<String> names = storageClient.getStoragePageNames();
         assertEquals(3, names.size());
         assertEquals("PantsNikeM", names.get(0));
         assertEquals("PantsAdidasS", names.get(1));

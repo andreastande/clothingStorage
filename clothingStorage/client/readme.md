@@ -42,7 +42,9 @@ StorageClient kommuniserer med server-siden av APIet ved hjelp av å opprette fo
 
 - putQuantity(String, int) -> boolean: putter mengde (quantity) av Clothing-objektet på restserveren vha. en PUT-request 
 
-- getNames() -> List<'String'>: henter navnene på alle Clothing-objektene i restserveren vha. en GET-request
+- getPricePageNames() -> List<'String'>: henter navnene på alle Clothing-objektene i restserveren til pris-siden vha. en GET-request
+
+- getStoragePageNames() -> List<'String'>: henter navnene på alle Clothing-objektene i restserveren til storage-siden vha. en GET-request
 
 - getSortedNames() -> List<'String'>: henter navnene på alle Clothing-objektene i restserveren i sortert rekkefølge vha. en GET-request
 

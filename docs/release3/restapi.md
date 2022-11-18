@@ -41,11 +41,11 @@ Response:
 }
 ```
 
-## Get names of Clothings in Storage
+## Get names of Clothings in Storage for price-page
 
 Type: <span style="color:#2e86c1">GET</span>
 
-URI: host:port/clothingStorage/names <http://localhost:8080/clothingStorage/names>
+URI: host:port/clothingStorage/priceNames <http://localhost:8080/clothingStorage/priceNames>
 
 Response:
 ```json
@@ -54,6 +54,23 @@ Response:
         "PantsNikeS",
         "ShortsLouisVuittonM",
         "SocksAdidasL"
+    ]
+}
+```
+
+## Get names of Clothings in Storage for storage-page
+
+Type: <span style="color:#2e86c1">GET</span>
+
+URI: host:port/clothingStorage/storageNames <http://localhost:8080/clothingStorage/storageNames>
+
+Response:
+```json
+{
+    [ 
+        "JacketAdidasL",
+        "UnderwearLouisVuittonS",
+        "ShirtSupremeL"
     ]
 }
 ```

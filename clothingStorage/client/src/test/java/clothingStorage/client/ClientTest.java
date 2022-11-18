@@ -141,14 +141,28 @@ public class ClientTest {
     }
 
     @Test
-    public void testGetNames() {
-        stubFor(get(urlEqualTo("/clothingStorage/names"))
+    public void testGetPricePageNames() {
+        stubFor(get(urlEqualTo("/clothingStorage/priceNames"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withBody("[\"PantsNikeM\",\"PantsAdidasS\",\"JacketLacosteL\"]")));
 
-        List<String> names = storageClient.getNames();
+        List<String> names = storageClient.getPricePageNames();
         assertEquals("PantsNikeM", names.get(0));
+        assertEquals("PantsAdidasS", names.get(1));
+        assertEquals("JacketLacosteL", names.get(2));
+    }
+
+    @Test
+    public void testGetStoragePageNames() {
+        stubFor(get(urlEqualTo("/clothingStorage/storageNames"))
+            .willReturn(aResponse()
+                .withStatus(200)
+                .withBody("[\"PantsNikeM\",\"PantsAdidasS\",\"JacketLacosteL\"]")));
+
+        List<String> names = storageClient.getStoragePageNames();
+        assertEquals("PantsNikeM", names.get(0));
+        assertEquals("PantsAdidasS", names.get(1));
         assertEquals("JacketLacosteL", names.get(2));
     }
 

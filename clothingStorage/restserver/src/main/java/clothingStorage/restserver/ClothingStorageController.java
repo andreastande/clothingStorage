@@ -40,8 +40,8 @@ public class ClothingStorageController {
      *
      * @return list of clothing-names
      */
-    @GetMapping(path = "/names")
-    public List<String> getNames() {
+    @GetMapping(path = "/priceNames")
+    public List<String> getPricePageNames() {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<String> names2 = new ArrayList<>();
 
@@ -56,6 +56,21 @@ public class ClothingStorageController {
                 names.add(clothing.getName());
                 names2.add(clothing.getType() + "; " + clothing.getBrand());
             }
+        }
+        return names;
+    }
+
+    /**
+     * Gets list of clothings-names in storage.
+     *
+     * @return list of clothing-names
+     */
+    @GetMapping(path = "/storageNames")
+    public List<String> getStoragePageNames() {
+        ArrayList<String> names = new ArrayList<>();
+
+        for (Clothing clothing : getStorage().getAllClothes().keySet()) {
+            names.add(clothing.getName());
         }
         return names;
     }

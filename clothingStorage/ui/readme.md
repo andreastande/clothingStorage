@@ -172,8 +172,10 @@ Interface som implementeres av DirectAccess og RemoteAccess.
 - getSortedBrandPriceDisplay(String brand) -> List<String>; henter en sortert liste basert på merke som brukes til display for pris-siden
 
 - getSortedNames() -> List<String>: henter navnene til de sorterte Clothing-objektene på pris-siden
+
+- getPricePageNames() -> List<String>: henter en liste med navnene på klærne i storage for pris-siden
  
-- getNames() -> List<String>: henter en liste med navnene på klærne i storage
+- getStoragePageNames() -> List<String>: henter en liste med navnene på klærne i storage for storage-siden
 
 - updatePrice(Clothing clothing, double price) -> boolean: oppdaterer prisen til clothing til gitt pris
 

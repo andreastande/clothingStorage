@@ -221,9 +221,30 @@ public class StorageClient {
      *
      * @return the names for clothings in storage
      */
-    public List<String> getNames() {
+    public List<String> getPricePageNames() {
         List<String> names;
-        HttpRequest request = HttpRequest.newBuilder(endpointBaseUri.resolve("names"))
+        HttpRequest request = HttpRequest.newBuilder(endpointBaseUri.resolve("priceNames"))
+            .header(ACCEPT_HEADER, APPLICATION_JSON)
+            .GET()
+            .build();
+        try {
+            final HttpResponse<String> response = 
+                HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
+            names = Arrays.asList(objectMapper.readValue(response.body(), String[].class));
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return names;
+    }
+
+    /**
+     * Gets the names for clothings in the storage.
+     *
+     * @return the names for clothings in storage
+     */
+    public List<String> getStoragePageNames() {
+        List<String> names;
+        HttpRequest request = HttpRequest.newBuilder(endpointBaseUri.resolve("storageNames"))
             .header(ACCEPT_HEADER, APPLICATION_JSON)
             .GET()
             .build();

@@ -188,10 +188,27 @@ public class ClothingStorageApplicationTest {
     }
 
     @Test
-    public void testGetNames() {
+    public void testGetStoragePageNames() {
         try {
             MvcResult result = this.mockMvc.perform(
-                MockMvcRequestBuilders.get("/clothingStorage/names")) 
+                MockMvcRequestBuilders.get("/clothingStorage/storageNames")) 
+                                      .andExpect(MockMvcResultMatchers.status().isOk())
+                                      .andReturn();
+        List<String> names = Arrays.asList(objectMapper.readValue(result.getResponse().getContentAsString(), String[].class));
+        assertEquals("PantsNikeM", names.get(0));
+        assertEquals("PantsAdidasS", names.get(1));
+        assertEquals("JacketLacosteL", names.get(2));
+            
+        } catch (Exception e) {
+             fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testGetPricePageNames() {
+        try {
+            MvcResult result = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/clothingStorage/priceNames")) 
                                       .andExpect(MockMvcResultMatchers.status().isOk())
                                       .andReturn();
         List<String> names = Arrays.asList(objectMapper.readValue(result.getResponse().getContentAsString(), String[].class));

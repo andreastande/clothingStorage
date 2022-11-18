@@ -319,12 +319,12 @@ public class DirectAccess implements Access {
     }
 
     /**
-     * Gets the names for clothings in the storage.
+     * Gets the names for clothings in the storage. Used in price-page
      *
      * @return the names for clothings in storage
      */
     @Override
-    public List<String> getNames() {
+    public List<String> getPricePageNames() {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<String> names2 = new ArrayList<>();
 
@@ -339,6 +339,21 @@ public class DirectAccess implements Access {
                 names.add(clothing.getName());
                 names2.add(clothing.getType() + "; " + clothing.getBrand());
             }
+        }
+        return names;
+    }
+
+    /**
+     * Gets the names for clothings in the storage. Used in storage-page.
+     *
+     * @return the names for clothings in storage
+     */
+    @Override
+    public List<String> getStoragePageNames() {
+        ArrayList<String> names = new ArrayList<>();
+        
+        for (Clothing clothing : this.storage.getAllClothes().keySet()) {
+            names.add(clothing.getName());
         }
         return names;
     }

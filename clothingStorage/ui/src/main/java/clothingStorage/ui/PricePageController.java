@@ -278,7 +278,7 @@ public class PricePageController implements Initializable {
     private void handleConfirmNewPrice() throws JsonProcessingException {
         try {
             int index = priceList.getSelectionModel().getSelectedIndex();
-            if (access.getNames().isEmpty() || index == -1) {
+            if (access.getPricePageNames().isEmpty() || index == -1) {
                 throw new IndexOutOfBoundsException();
             }
             double price = Double.parseDouble(newPrice.getText());
@@ -293,7 +293,7 @@ public class PricePageController implements Initializable {
                     }
                 }
             } else {
-                List<String> names = access.getNames();
+                List<String> names = access.getPricePageNames();
                 String name = names.get(index);
                 Clothing clothing = access.getClothing(name);
                 for (Clothing clothing2 : access.getStorage().getAllClothes().keySet()) {
@@ -316,7 +316,7 @@ public class PricePageController implements Initializable {
                 showErrorMessage("Input must be a number");
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getPricePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before changing price");
@@ -333,7 +333,7 @@ public class PricePageController implements Initializable {
     private void handleConfirmDiscount() throws JsonProcessingException {
         try {
             int index = priceList.getSelectionModel().getSelectedIndex();
-            if (access.getNames().isEmpty() || index == -1) {
+            if (access.getPricePageNames().isEmpty() || index == -1) {
                 throw new IndexOutOfBoundsException();
             }
             double discountToAdd = Double.parseDouble(discount.getText());
@@ -348,7 +348,7 @@ public class PricePageController implements Initializable {
                     }
                 }
             } else {
-                List<String> names = access.getNames();
+                List<String> names = access.getPricePageNames();
                 String name = names.get(index);
                 Clothing clothing = access.getClothing(name);
                 for (Clothing clothing2 : access.getStorage().getAllClothes().keySet()) {
@@ -370,7 +370,7 @@ public class PricePageController implements Initializable {
                 showErrorMessage("Input must be a number");
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getPricePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before adding discount");
@@ -391,7 +391,7 @@ public class PricePageController implements Initializable {
     private void handleRemoveDiscount() throws JsonProcessingException {
         try {
             int index = priceList.getSelectionModel().getSelectedIndex();
-            if (access.getNames().isEmpty() || index == -1) {
+            if (access.getPricePageNames().isEmpty() || index == -1) {
                 throw new IndexOutOfBoundsException();
             }
             boolean removed = false;
@@ -405,7 +405,7 @@ public class PricePageController implements Initializable {
                     }
                 }
             } else {
-                List<String> names = access.getNames();
+                List<String> names = access.getPricePageNames();
                 String name = names.get(index);
                 Clothing clothing = access.getClothing(name);
                 for (Clothing clothing2 : access.getStorage().getAllClothes().keySet()) {
@@ -420,7 +420,7 @@ public class PricePageController implements Initializable {
                 updatePriceList(access.getPriceDisplay());
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getPricePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before removing discount");

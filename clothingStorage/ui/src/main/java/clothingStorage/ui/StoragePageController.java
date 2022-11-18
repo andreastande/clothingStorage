@@ -240,7 +240,7 @@ public class StoragePageController implements Initializable {
     private void handleRemoveClothingItem() {
         try {
             int index = storageList.getSelectionModel().getSelectedIndex();
-            List<String> names = access.getNames();
+            List<String> names = access.getStoragePageNames();
             String name = names.get(index);
             boolean removed = access.removeClothing(name);
             if (removed == true) {
@@ -260,7 +260,7 @@ public class StoragePageController implements Initializable {
     private void handleIncreaseByOne() {
         try {
             int index = storageList.getSelectionModel().getSelectedIndex();
-            List<String> names = access.getNames();
+            List<String> names = access.getStoragePageNames();
             String name = names.get(index);
             boolean updated = access.increaseQuantityByOne(name);
             if (updated == true) {
@@ -269,7 +269,7 @@ public class StoragePageController implements Initializable {
                 throw new IllegalArgumentException("Something went wrong");
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getStoragePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before increasing quantity");
@@ -286,7 +286,7 @@ public class StoragePageController implements Initializable {
     private void handleDecreaseByOne() {
         try {
             int index = storageList.getSelectionModel().getSelectedIndex();
-            List<String> names = access.getNames();
+            List<String> names = access.getStoragePageNames();
             String name = names.get(index);
             boolean updated = access.decreaseQuantityByOne(name);
             if (updated == true) {
@@ -295,7 +295,7 @@ public class StoragePageController implements Initializable {
                 // do nothing
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getStoragePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before decreasing quantity");
@@ -312,10 +312,10 @@ public class StoragePageController implements Initializable {
     private void handleAddQuantity() {
         int index = storageList.getSelectionModel().getSelectedIndex();
         try {
-            if (access.getNames().isEmpty() || index == -1) {
+            if (access.getStoragePageNames().isEmpty() || index == -1) {
                 throw new IndexOutOfBoundsException();
             }
-            List<String> names = access.getNames();
+            List<String> names = access.getStoragePageNames();
             String name = names.get(index);
             int addQuantity = Integer.parseInt(quantity.getText());
             boolean updated = access.increaseQuantity(name, addQuantity);
@@ -331,7 +331,7 @@ public class StoragePageController implements Initializable {
                 showErrorMessage("Input must be a number");
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getStoragePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before increasing quantity");
@@ -346,10 +346,10 @@ public class StoragePageController implements Initializable {
     private void handleRemoveQuantity() {
         int index = storageList.getSelectionModel().getSelectedIndex();
         try {
-            if (access.getNames().isEmpty() || index == -1) {
+            if (access.getStoragePageNames().isEmpty() || index == -1) {
                 throw new IndexOutOfBoundsException();
             }
-            List<String> names = access.getNames();
+            List<String> names = access.getStoragePageNames();
             String name = names.get(index);
             int decQuantity = Integer.parseInt(quantity.getText());
             boolean updated = access.decreaseQuantity(name, decQuantity);
@@ -365,7 +365,7 @@ public class StoragePageController implements Initializable {
                 showErrorMessage("Input must be a number");
             }
         } catch (IndexOutOfBoundsException e) {
-            if (access.getNames().isEmpty()) {
+            if (access.getStoragePageNames().isEmpty()) {
                 showErrorMessage("Add a new clothing to storage first");
             } else {
                 showErrorMessage("Select a clothing before decreasing quantity");
