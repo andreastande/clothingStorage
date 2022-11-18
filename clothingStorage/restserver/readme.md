@@ -47,7 +47,9 @@ Kontroller (Controller) klassen for håndtering av get og post etterspørsler. D
 
 - getStorage() -> Storage: henter Storage
 
-- getNames() -> List<String>: henter navnene på alle Clothing-objektene i Storage
+- getPricePageNames() -> List<String>: henter navnene på alle Clothing-objektene i Storage til pris-siden
+
+- getStoragePageNames() -> List<String>: henter navnene på alle Clothing-objektene i Storage til storage-siden
 
 - getSortedNames() -> ArrayList<String>: henter ut alle navnene på Clothing-objektene i Storage i sortert rekkefølge
 

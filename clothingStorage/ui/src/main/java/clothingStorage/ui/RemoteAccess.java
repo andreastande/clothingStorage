@@ -273,13 +273,23 @@ public class RemoteAccess implements Access {
     }
 
     /**
+     * Gets the names for clothings from restserver. Used in price-page.
+     *
+     * @return the names for clothings from restserver
+     */
+    @Override
+    public List<String> getPricePageNames() {
+        return storageClient.getPricePageNames();
+    }
+
+    /**
      * Gets the names for clothings from restserver.
      *
      * @return the names for clothings from restserver
      */
     @Override
-    public List<String> getNames() {
-        return storageClient.getNames();
+    public List<String> getStoragePageNames() {
+        return storageClient.getStoragePageNames();
     }
 
     /**

@@ -51,7 +51,9 @@ Integrasjonstester for klient og server.
 
 - testPutQuantity() -> tester å putte mengde (quantity) av Clothing-objektet på restserveren  
 
-- testGetNames() -> teste å hente navnene på alle Clothing-objektene i Storage
+- testGetStoragePageNames() -> teste å hente navnene på alle Clothing-objektene i Storage for storage-siden
+
+- testGetPricePageNames() -> teste å hente navnene på alle Clothing-objektene i Storage for pris-siden
 
 - testGetSortedNames() -> tester å hente navnene på alle Clothing-objektene i Storage i sortert rekkefølge
 

@@ -37,7 +37,9 @@ public interface Access {
 
     public List<String> getSortedNames();
 
-    public List<String> getNames();
+    public List<String> getPricePageNames();
+
+    public List<String> getStoragePageNames();
 
     public boolean updatePrice(Clothing clothing, double price);
 

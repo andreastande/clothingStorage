@@ -12,7 +12,8 @@ class ClothingStorageController
     -ClothingStorageService clothingStorageService
     --
     +Storage getStorage()
-    +List<String> getNames()
+    +List<String> getPricePageNames()
+    +List<String> getStoragePageNames()
     +ArrayList<String> getSortedNames()
     +List<String> getSortedClothes(String)
     +List<String> getSortedClothesType(String)
